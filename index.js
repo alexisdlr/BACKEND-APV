@@ -9,18 +9,7 @@ const PORT = process.env.PORT || 8800
 dotenv.config()
 
 connectDB();
-const dominios = [process.env.FRONTEND_URL]
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    if(dominios.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('No permitido por cors'))
-    }
-  }
-}
-app.use(cors(corsOptions))
 app.use(express.json())
 
 app.use('/api/veterinarios', veterinarioRoutes)
