@@ -5,6 +5,7 @@ import generateToken from "../helpers/generateToken.js";
 import Veterinario from "../models/Veterinario.js";
 export const register = async (req, res) => {
   const { email, name } = req.body;
+  console.log(email, name)
   const userExist = await Veterinario.findOne({ email });
 
   if (userExist) return res.status(400).json({ msg: "El usuario ya existe" });
